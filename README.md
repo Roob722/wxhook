@@ -4,4 +4,4 @@
 * 下面是python调用的结果，详细调用方法可查看ControlExport.h 文件
  ![](http://yungengxin.oss-cn-beijing.aliyuncs.com/qw/55.jpg)
 
- ![](http://yungengxin.oss-cn-beijing.aliyuncs.com/qw/62.jpg)
+ ![](http://yungengxin.oss-cn-beijing.aliyuncs.com/qw/66.jpg)
