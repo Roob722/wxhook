@@ -1,4 +1,4 @@
-```
+```cpp
 #include "stdafx.h"
 #include "wx.h"
 #include <io.h>
