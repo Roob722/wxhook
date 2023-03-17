@@ -113,7 +113,7 @@ logging_layout = [[sg.Text("Receive：")],
                   ]
 
 layout = [[sg.MenubarCustom(menu_def, key='-MENU-', font='Courier 15', tearoff=True)],
-          [sg.Text('请勿用于违法犯罪行为!', size=(38, 1), justification='center', font=("Helvetica", 16),
+          [sg.Text('', size=(38, 1), justification='center', font=("Helvetica", 16),
                    relief=sg.RELIEF_RIDGE, k='-TEXT HEADING-', enable_events=True)]]
 layout += [[sg.TabGroup([[sg.Tab('功能选项', input_layout),
 
