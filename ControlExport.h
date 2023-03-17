@@ -2,7 +2,7 @@
 
 
 
-//102 µÇÂ¼×´Ì¬  103 ¼ÓÈË·µ»ØĞÅÏ¢
+//102 ç™»å½•çŠ¶æ€  103 åŠ äººè¿”å›ä¿¡æ¯
 typedef void(__stdcall*cbtSign)(const char * pstr);
 
 typedef void(__stdcall*cbtSelete)(const char * pstr);
@@ -17,79 +17,79 @@ typedef void(__stdcall*cbtDBkey)(byte pKey[16]);
 extern "C"
 {
 	
-	// ÌØ±ğ×¢Òâ    pwDllPath ½áÎ²²»Òª´ø \\¸Ü£¬ ±ÈÈç "D:\ÆóÎ¢ÔÙ³ö·¢\sendCard\Release"
+	// ç‰¹åˆ«æ³¨æ„    pwDllPath ç»“å°¾ä¸è¦å¸¦ \\æ ï¼Œ æ¯”å¦‚ "D:\å¾®ä¿¡å‡ºå‘\sendCard\Release"
 	BOOL SetEnv(const wchar_t* pwDllPath, PVOID pSign, PVOID pSelete, PVOID pGetFriend, PVOID pRecvmsg, PVOID pDBkey);
 
 	
-	//Æô¶¯Ç°µ÷ÓÃMuOpen.exe ĞİÃß1Ãë  ¾ÍÊÇ¶à¿ªÎ¢ĞÅ
-	//Æô¶¯ÇÒ ¸½¼Óµ½ÆóÎ¢  ·µ»ØÆóÎ¢pid £¬ Ğ¡ÓÚ4±íÊ¾Ê§°Ü
-	int WxStart(const wchar_t* pPP);//Æô¶¯¸½¼Óµ½Î¢ĞÅ
+	//å¯åŠ¨å‰è°ƒç”¨MuOpen.exe ä¼‘çœ 1ç§’  å°±æ˜¯å¤šå¼€å¾®ä¿¡
+	//å¯åŠ¨ä¸” é™„åŠ åˆ°å¾®ä¿¡    è¿”å›å¾®ä¿¡pid ï¼Œ å°äº4è¡¨ç¤ºå¤±è´¥
+	int WxStart(const wchar_t* pPP);//å¯åŠ¨é™„åŠ åˆ°å¾®ä¿¡
 
-	//¸½¼Óµ½Î¢ĞÅ   
+	//é™„åŠ åˆ°å¾®ä¿¡   
 	BOOL WxAttach(int dwPid);
 
 
-	BOOL GetState(int dwPid);//»ñÈ¡ĞÅÏ¢×´Ì¬£¬µÇÂ¼ĞÅÏ¢
+	BOOL GetState(int dwPid);//è·å–ä¿¡æ¯çŠ¶æ€ï¼Œç™»å½•ä¿¡æ¯
 
 	
-	//Ñ°ÈË
+	//å¯»äºº
 	BOOL FindPhone(int npid, const wchar_t* pwPhone);
-	//¼ÓÈË
+	//åŠ äºº
 	BOOL AddFriend(int npid, const wchar_t* pwV3, const wchar_t* pwVerify);
 
 
-	//·¢ÃûÆ¬pwWXID  ÆóÎ¢ºÃÓÑuid,  Íâ²¿Èº uid ¶¼ĞĞ
+	//å‘åç‰‡pwWXID  ä¼å¾®å¥½å‹uid,  å¤–éƒ¨ç¾¤ uid éƒ½è¡Œ
 	//pwCard  788de uid
 	// SendCardMsg(g_pid, L"wxid_2tn9xxw1v98y22", L"wxid_1mxipy7a3g4h21");
 	BOOL SendCardMsg(int npid, const wchar_t* pwWXID, const wchar_t* pwCard);
 
-	//·¢Í¼Æ¬
+	//å‘å›¾ç‰‡
 	//SendImage(g_pid, L"wxid_2tn9xxw1v98y22", L"D:\\1111.PNG");
 	BOOL SendImage(int npid, const wchar_t* pwWXID, const wchar_t* pwPath);
 
-	//·¢ÎÄ×Ö pAtWXID Ìî0 
+	//å‘æ–‡å­— pAtWXID å¡«0 
 	//SendText(g_pid, L"wxid_2tn9xxw1v98y22", L"234242342423434442",0);
 	VOID SendText(int dwPid, const wchar_t* pwwxid, const wchar_t* pwText, const wchar_t* pAtWXID = 0);
 
-	//·¢Á´½Ó
-	//SendLink(g_pid, L"wxid_2tn9xxw1v98y22", L"±êÌâ1111",L"https://baike.baidu.com/item/1/31661?fr=aladdin", 
+	//å‘é“¾æ¥
+	//SendLink(g_pid, L"wxid_2tn9xxw1v98y22", L"æ ‡é¢˜1111",L"https://baike.baidu.com/item/1/31661?fr=aladdin", 
 	//L"https://bkimg.cdn.bcebos.com/pic/8435e5dde71190ef76c61d6d79518a16fdfaaf51ca64?x-bce-process=image/resize,m_lfit,w_536,limit_1/format,f_jpg",
 //	L"qweqweqwwrweripweiruoweuioruoiweuiorwuioruoiouioui");
 	BOOL SendLink(int npid, const wchar_t* pwWXID, const wchar_t* pwTitle,
 		const wchar_t* pwURL, const wchar_t* pwImage, const wchar_t* pwDesc);
 
 
-	//¸ù¾İ Í¼Æ¬×Ö½Ú´óĞ¡ ÕÒµ½Í¼Æ¬
-	//psource ¼ÓÃÜÍ¼Æ¬µÄ¾ø¶ÔÂ·¾¶
-     //pdest ½âÃÜÍ¼Æ¬µÄÂ·¾¶
-	//Ã»ÕÒµ½·µ»Ø0£¬ ÕÒµ½·µ»ØÍ¼Æ¬Ãû
+	//æ ¹æ® å›¾ç‰‡å­—èŠ‚å¤§å° æ‰¾åˆ°å›¾ç‰‡
+	//psource åŠ å¯†å›¾ç‰‡çš„ç»å¯¹è·¯å¾„
+     //pdest è§£å¯†å›¾ç‰‡çš„è·¯å¾„
+	//æ²¡æ‰¾åˆ°è¿”å›0ï¼Œ æ‰¾åˆ°è¿”å›å›¾ç‰‡å
 	const char* FindSizeFile(const wchar_t * pPath, DWORD fsize);
 
 
-	//½âÃÜ±£´æÍ¼Æ¬ 
-	//psource ¼ÓÃÜÍ¼Æ¬µÄ¾ø¶ÔÂ·¾¶
-	//pdest ½âÃÜÍ¼Æ¬µÄÂ·¾¶
-	//³É¹¦·µ»Ø1£¬ Ê§°Ü·µ»Ø0
+	//è§£å¯†ä¿å­˜å›¾ç‰‡ 
+	//psource åŠ å¯†å›¾ç‰‡çš„ç»å¯¹è·¯å¾„
+	//pdest è§£å¯†å›¾ç‰‡çš„è·¯å¾„
+	//æˆåŠŸè¿”å›1ï¼Œ å¤±è´¥è¿”å›0
 	int DePic(const wchar_t *psource, const wchar_t *pdest);
 
 	
 
-	//»ñÈ¡µ¥¸öºÃÓÑĞÅÏ¢¡£ »á´¥·¢»Øµ÷£¬ MsgType == 102
+	//è·å–å•ä¸ªå¥½å‹ä¿¡æ¯ã€‚ ä¼šè§¦å‘å›è°ƒï¼Œ MsgType == 102
 	//GetWxFriInfo(g_pid, L"wxid_2tn9xxw1v98y22");
 	VOID GetWxFriInfo(int dwPid, const wchar_t* pwwxid);
 	
 
-	//»ñÈ¡È«²¿  ºÃÓÑ\Èº\¹«ÖÚºÅ\ ÆóÎ¢ºÃÓÑ\ Èº ÁĞ±í¡£ »á´¥·¢»Øµ÷£¬ MsgType == 102
+	//è·å–å…¨éƒ¨  å¥½å‹\ç¾¤\å…¬ä¼—å·\ ä¼å¾®å¥½å‹\ ç¾¤ åˆ—è¡¨ã€‚ ä¼šè§¦å‘å›è°ƒï¼Œ MsgType == 102
 	//GetAllWxFri(g_pid);
 	BOOL GetAllWxFri(int dwPid);
 	
 
-	//»ñÈ¡Èº³ÉÔ± »á´¥·¢»Øµ÷   MsgType == 104
+	//è·å–ç¾¤æˆå‘˜ ä¼šè§¦å‘å›è°ƒ   MsgType == 104
 	//GetGrpMember(g_pid, L"17804851601@chatroom");
 	BOOL GetGrpMember(int npid, const wchar_t* pwGroup);
 	
 	
-	//BOOL SendFileMsg(int npid, const wchar_t* pwWXID, const wchar_t* pwPath);//·¢ËÍÎÄ¼ş
+	//BOOL SendFileMsg(int npid, const wchar_t* pwWXID, const wchar_t* pwPath);//å‘é€æ–‡ä»¶
 	BOOL GetState1(int dwPid);
 	const wchar_t* GetVer(const wchar_t* path);
 	const wchar_t* GetProcessPath(int ipid);
