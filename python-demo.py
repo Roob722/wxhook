@@ -9,8 +9,6 @@ import re
 login_add = {}
 course_pid = []
 val_data = []
-sg.theme('black')
-sg.theme('dark red')
 sg.theme('dark green 7')
 dll = ctypes.cdll.LoadLibrary('.//Control.dll')
 
